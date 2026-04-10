@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(node:*)",
+      "Bash(git:*)",
+      "Bash(python:*)",
+      "Bash(pip:*)",
+      "Bash(claude --version)",
+      "Bash(mkdir:*)",
+      "Bash(rm:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(yt-dlp:*)",
+      "Bash(whisper:*)",
+      "Bash(ffmpeg:*)",
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "mcp__plugin_context7_context7__query-docs"
+    ]
+  },
+  "spinnerTipsEnabled": true
+}
