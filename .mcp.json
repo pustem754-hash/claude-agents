@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "brave-search": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@brave/brave-search-mcp-server"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      }
+    },
+    "supadata": {
+      "type": "http",
+      "url": "https://api.supadata.ai/mcp",
+      "headers": {
+        "x-api-key": "${SUPADATA_API_KEY}"
+      }
+    }
+  }
+}

@@ -19,8 +19,16 @@ model: opus
 | `report-generator` | Создание отчётов, визуализация данных, "сделай отчёт", "графики", "PDF" |
 | `meeting-notes` | Обработка транскриптов встреч, "заметки встречи", "action items" |
 | `youtube-analyzer` | Анализ YouTube видео, транскрибация, выжимка, "видео", "youtube", "yt" |
+| `transcript-analyst` | Анализ субтитров YouTube через Supadata API, маркетинговый разбор топ-15 outlier-видео |
+| `site-builder` | Создание сайтов/лендингов, "сделай сайт", "собери лендинг", HTML/React/Next.js |
+| `content-creator` | Посты для соцсетей (Threads/Instagram/TikTok/Telegram/LinkedIn/X), "напиши пост", "контент для" |
+| `sales-agent` | Продажи, CRM, "коммерческое предложение", "cold письмо", "follow-up", "квалификация лида" |
+| `deploy-agent` | Деплой на Vercel/Netlify/GitHub Pages/Cloudflare, "выложи", "задеплой", "опубликуй сайт" |
+| `youtube-monitor` | Мониторинг YouTube по ключевым словам/каналам, "свежие видео про", "отслеживай канал", "/monitor" |
 
 ## Процесс работы
+
+ВАЖНО: из-за ограничения вложенности субагентов в Claude Code, router выполняет только классификацию задачи и возвращает имя целевого агента. Фактический запуск агента выполняет top-level оркестратор (Claude Code CLI или пользователь).
 
 ### 1. Классификация запроса
 
@@ -40,6 +48,12 @@ model: opus
 | "сделай отчёт", "визуализируй", "графики", "PDF из данных" | report-generator |
 | "заметки встречи", "транскрипт", "action items", "митинг", "созвон" | meeting-notes |
 | "youtube", "видео", "yt", "ролик", "выжимка видео", URL youtube.com/youtu.be | youtube-analyzer |
+| "outliers", "разбор топ видео", "паттерны успеха видео", "маркетинговый анализ youtube", наличие `outliers.json` | transcript-analyst |
+| "сделай сайт", "собери лендинг", "нужна страница", "landing page", "веб-приложение" | site-builder |
+| "напиши пост", "контент для соцсетей", "для Threads/Instagram/TikTok/Telegram", "caption", "сценарий Reels/TikTok" | content-creator |
+| "коммерческое предложение", "КП", "cold email", "outreach", "follow-up", "квалификация лида", "CRM" | sales-agent |
+| "задеплой", "выложи сайт", "опубликуй", "Vercel", "Netlify", "GitHub Pages", "Cloudflare Pages" | deploy-agent |
+| "/monitor", "свежие видео про", "мониторь youtube", "отслеживай канал", "новые ролики по теме" | youtube-monitor |
 
 ### 3. Определение цепочек
 
@@ -54,6 +68,16 @@ model: opus
 | "Проанализируй видео и сделай отчёт" | youtube-analyzer → report-generator |
 | "Выжимка из видео в PDF" | youtube-analyzer → report-generator |
 | "Проанализируй видео и сравни с..." | youtube-analyzer → deep-research |
+| "Разбери топ outlier-видео и сделай отчёт", "маркетинговый анализ топ youtube в PDF" | transcript-analyst → report-generator |
+| "Сделай сайт и выложи на Vercel" | site-builder → deploy-agent |
+| "Исследуй нишу и собери лендинг" | deep-research → site-builder |
+| "Из видео сделай посты для соцсетей" | transcript-analyst → content-creator (или youtube-analyzer → content-creator) |
+| "Исследуй тему и напиши пост" | deep-research → content-creator |
+| "Найди лидов и напиши им cold-письма" | deep-research → sales-agent |
+| "Собери сайт, задеплой и напиши пост про запуск" | site-builder → deploy-agent → content-creator |
+| "Найди свежие видео и сделай из них посты" | youtube-monitor → content-creator |
+| "Мониторь видео и разбери outlier-ы" | youtube-monitor → transcript-analyst |
+| "Найди лидов и добавь в CRM" | deep-research → sales-agent |
 
 ### 4. Запуск агента(ов)
 

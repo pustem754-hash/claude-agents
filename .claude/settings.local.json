@@ -11,7 +11,6 @@
       "Bash(pip:*)",
       "Bash(claude --version)",
       "Bash(mkdir:*)",
-      "Bash(rm:*)",
       "Bash(cp:*)",
       "Bash(mv:*)",
       "Bash(cat:*)",
@@ -20,8 +19,11 @@
       "Bash(whisper:*)",
       "Bash(ffmpeg:*)",
       "mcp__plugin_context7_context7__resolve-library-id",
-      "mcp__plugin_context7_context7__query-docs"
+      "mcp__plugin_context7_context7__query-docs",
+      "WebFetch(domain:api.hh.ru)",
+      "Skill(update-config)"
     ]
   },
-  "spinnerTipsEnabled": true
+  "spinnerTipsEnabled": true,
+  "enabledMcpjsonServers": ["brave-search", "supadata"]
 }
