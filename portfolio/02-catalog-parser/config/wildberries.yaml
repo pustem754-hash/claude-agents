@@ -1,0 +1,16 @@
+name: "Wildberries"
+mode: api
+base_url: "https://www.wildberries.ru"
+default_query: "ноутбук"
+
+pagination:
+  type: page_param
+  max_pages: 3
+
+rate_limit:
+  delay_min: 1.0
+  delay_max: 3.0
+
+output:
+  csv_file: "wildberries.csv"
+  json_file: "wildberries.json"

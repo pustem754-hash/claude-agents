@@ -1,0 +1,44 @@
+# XPath-конфигурация сайтов. Добавление нового сайта не требует правок кода.
+lenta_ru:
+  name: "Lenta.ru"
+  cloudflare: true
+  selectors:
+    title:
+      - "//h1[contains(@class,'topic-body__title')]//text()"
+      - "//h1[contains(@class,'b-topic__title')]//text()"
+    text:
+      - "//div[contains(@class,'topic-body__content')]//p"
+      - "//div[contains(@class,'b-text')]//p"
+    author:
+      - "//a[contains(@class,'topic-authors__link')]//text()"
+    date:
+      - "//time/@datetime"
+
+rbc_ru:
+  name: "RBC.ru"
+  cloudflare: true
+  selectors:
+    title:
+      - "//h1[contains(@class,'article__header__title')]//text()"
+      - "//h1[contains(@class,'article__header__title-in')]//text()"
+    text:
+      - "//div[contains(@class,'article__text')]//p"
+    author:
+      - "//span[contains(@class,'article__authors__author__name')]//text()"
+    date:
+      - "//span[contains(@class,'article__header__date')]/@content"
+      - "//time/@datetime"
+
+tass_ru:
+  name: "TASS.ru"
+  cloudflare: false
+  selectors:
+    title:
+      - "//h1[contains(@class,'title')]//text()"
+    text:
+      - "//div[contains(@class,'TextContent')]//p"
+      - "//article//p"
+    author:
+      - "//span[contains(@class,'author')]//text()"
+    date:
+      - "//time/@datetime"

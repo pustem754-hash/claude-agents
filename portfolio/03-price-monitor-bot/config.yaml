@@ -1,0 +1,17 @@
+bot:
+  parse_mode: HTML
+  default_check_interval_minutes: 30
+
+notifications:
+  notify_on_any_change: true
+  min_change_pct: 0.0     # ставьте >0, чтобы игнорить микро-колебания
+
+scraper:
+  timeout: 15
+  sites:
+    - wildberries.ru
+    - ozon.ru
+    - market.yandex.ru
+    - dns-shop.ru
+    - mvideo.ru
+    - citilink.ru

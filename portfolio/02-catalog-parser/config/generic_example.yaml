@@ -1,0 +1,31 @@
+# Пример универсального HTML-конфига. Копируй и адаптируй под нужный сайт.
+name: "Generic HTML shop"
+mode: html
+base_url: "https://example-shop.ru/catalog/"
+
+pagination:
+  type: next_button     # или page_param
+  max_pages: 5
+  next_selector: "a.pagination__next"
+  page_param: "p"       # используется, если type=page_param
+
+selectors:
+  card: ".product-card"
+  id: ".product-card[data-id]"
+  name: ".product-card__title"
+  brand: ".product-card__brand"
+  price: ".product-card__price-current"
+  original_price: ".product-card__price-old"
+  image: ".product-card__image img"
+  link: "a.product-card__link"
+  availability: ".product-card__stock"
+  rating: ".product-card__rating"
+  reviews: ".product-card__reviews"
+
+rate_limit:
+  delay_min: 1.5
+  delay_max: 3.5
+
+output:
+  csv_file: "generic.csv"
+  json_file: "generic.json"

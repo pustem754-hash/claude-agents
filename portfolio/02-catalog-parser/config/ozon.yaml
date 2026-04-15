@@ -1,0 +1,26 @@
+name: "Ozon"
+mode: playwright
+base_url: "https://www.ozon.ru/category/smartfony-15502/"
+
+pagination:
+  type: scroll_and_button
+  max_pages: 3
+  scroll_passes: 4
+  next_button_selector: "a[aria-label='Следующая страница']"
+
+selectors:
+  card: "[data-widget='searchResultsV2'] .tile-root, .widget-search-result-container .tile-root"
+  name: "span.tsBody500Medium, a[href*='/product/'] span"
+  brand: ".tsBodyMBold"
+  price: "span.tsHeadline500Medium"
+  original_price: "span.tsBodyControl400Small"
+  image: "img"
+  link: "a[href*='/product/']"
+
+rate_limit:
+  delay_min: 2.0
+  delay_max: 4.0
+
+output:
+  csv_file: "ozon.csv"
+  json_file: "ozon.json"
