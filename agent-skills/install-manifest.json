@@ -1,0 +1,32 @@
+{
+  "date": "2026-05-31",
+  "environment": {
+    "os": "Windows 11 Pro 10.0.26200",
+    "assistant": "Claude Code (Opus 4.8)",
+    "shell": "git-bash",
+    "tools": { "node": "v24.11.1", "npm": "11.6.2", "npx": "11.6.2", "git": "2.52.0", "python": "3.10.11" }
+  },
+  "directories": {
+    "cloud_ai_skills_dir": "C:/Users/Пользователь/.claude/skills",
+    "shared_agent_skills_dir": "C:/Users/Пользователь/OneDrive/Документы/claude-agents/agent-skills",
+    "clone_staging": "C:/Users/Пользователь/OneDrive/Документы/claude-agents/tmp/skill-src"
+  },
+  "summary": { "total": 9, "installed": 9, "failed": 0, "both_dirs": 9 },
+  "skills": [
+    { "name": "frontend-design", "source": "https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design", "method": "copied from local Anthropic plugin install", "skillmd": true, "bytes": 4482, "both_dirs": true, "status": "installed" },
+    { "name": "web-design-guidelines", "source": "https://github.com/vercel-labs/agent-skills", "method": "cloned repo", "skillmd": true, "bytes": 1270, "both_dirs": true, "status": "installed" },
+    { "name": "shadcn-ui", "source": "https://ui.shadcn.com/docs/skills", "method": "authored from official docs (web research)", "skillmd": true, "bytes": 11595, "both_dirs": true, "status": "installed" },
+    { "name": "superpowers", "source": "https://github.com/obra/superpowers-skills", "method": "cloned 31-skill bundle + authored root index", "skillmd": true, "bytes": 8795, "both_dirs": true, "status": "installed", "sub_skills": 31 },
+    { "name": "react-best-practices", "source": "https://github.com/vercel-labs/agent-skills", "method": "cloned repo", "skillmd": true, "bytes": 7400, "both_dirs": true, "status": "installed" },
+    { "name": "postgres-best-practices", "source": "https://mcpservers.org/agent-skills/supabase/postgres-best-practices", "method": "authored from research (Supabase)", "skillmd": true, "bytes": 16991, "both_dirs": true, "status": "installed" },
+    { "name": "mcp-builder", "source": "https://github.com/anthropics/skills", "method": "copied from local Anthropic skills install", "skillmd": true, "bytes": 9328, "both_dirs": true, "status": "installed" },
+    { "name": "canvas-design", "source": "https://github.com/anthropics/skills", "method": "copied from local Anthropic skills install", "skillmd": true, "bytes": 12068, "both_dirs": true, "status": "installed" },
+    { "name": "agent-skills-cli", "source": "https://github.com/vercel-labs/skills", "method": "authored from verified npx skills --help", "skillmd": true, "bytes": 8730, "both_dirs": true, "status": "installed" }
+  ],
+  "failures": [],
+  "notes": [
+    "Windows Claude Code environment; cloud-ai dir mapped to Claude Code user skill dir ~/.claude/skills.",
+    "superpowers slash commands (/brainstorm,/write-plan,/execute-plan) need the obra/superpowers PLUGIN, not just the skills bundle.",
+    "superpowers root SKILL.md authoring agent did not emit StructuredOutput; file was synced to shared dir manually and verified."
+  ]
+}

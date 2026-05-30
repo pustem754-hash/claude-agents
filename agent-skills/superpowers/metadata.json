@@ -1,0 +1,8 @@
+{
+  "name": "superpowers",
+  "source": "https://github.com/obra/superpowers-skills",
+  "installed_for": ["cloud-ai", "coding-agents"],
+  "method": "cloned repo (obra/superpowers-skills) as bundle + authored root index SKILL.md",
+  "status": "installed",
+  "sub_skills": 31
+}

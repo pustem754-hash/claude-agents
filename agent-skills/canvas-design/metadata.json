@@ -1,0 +1,7 @@
+{
+  "name": "canvas-design",
+  "source": "https://github.com/anthropics/skills",
+  "installed_for": ["cloud-ai", "coding-agents"],
+  "method": "copied from local Anthropic skills install",
+  "status": "installed"
+}

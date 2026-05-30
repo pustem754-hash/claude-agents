@@ -41,3 +41,10 @@ venv/
 node_modules/
 dist/
 build/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Skill install staging + backups (see agent-skills/INSTALL_MANIFEST.md)
+# agent-skills/ itself IS tracked — it's the portable shared skill library
+# ─────────────────────────────────────────────────────────────────────────────
+tmp/
+*.backup.*
