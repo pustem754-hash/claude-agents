@@ -4,6 +4,7 @@
   },
   "teammateMode": "tmux",
   "defaultMode": "bypassPermissions",
+  "skipDangerousModePermissionPrompt": true,
   "statusLine": {
     "type": "command",
     "command": "bash agent-runtime/statusline.sh"
@@ -84,6 +85,10 @@
       "WebFetch(domain:pastebin.com)",
       "WebFetch(domain:0x0.st)",
       "WebFetch(domain:transfer.sh)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(npm publish:*)"
     ]
   },
   "enabledMcpjsonServers": ["brave-search", "supadata"]

@@ -48,3 +48,13 @@ build/
 # ─────────────────────────────────────────────────────────────────────────────
 tmp/
 *.backup.*
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Runtime noise / local artifacts (not for commit)
+# ─────────────────────────────────────────────────────────────────────────────
+.claude/scheduled_tasks.lock
+agent-runtime/
+outputs/
+.omc/
+Figma-Context-MCP/
+portfolio.zip

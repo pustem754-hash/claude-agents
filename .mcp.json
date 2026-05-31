@@ -18,6 +18,24 @@
       "headers": {
         "x-api-key": "${SUPADATA_API_KEY}"
       }
+    },
+    "agentmemory": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx -y @agentmemory/mcp"
+      ],
+      "env": {}
+    },
+    "figma-developer": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx -y figma-developer-mcp --figma-api-key=${FIGMA_API_KEY} --stdio"
+      ],
+      "env": {}
     }
   }
 }
