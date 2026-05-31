@@ -1,0 +1,54 @@
+2026-04-21 01:01:11,038 INFO marquis: marquis_bot starting, inbox=C:\Users\Пользователь\OneDrive\Документы\claude-agents\bot\data\marquis_inbox.jsonl
+2026-04-21 01:01:17,021 ERROR marquis: HTTP 409 on getUpdates, sleep 1.0s
+2026-04-21 01:01:23,276 ERROR marquis: HTTP 409 on getUpdates, sleep 2.0s
+2026-04-21 01:01:31,143 ERROR marquis: HTTP 409 on getUpdates, sleep 4.0s
+2026-04-21 01:01:42,555 ERROR marquis: HTTP 409 on getUpdates, sleep 8.0s
+2026-04-21 01:01:55,528 ERROR marquis: HTTP 409 on getUpdates, sleep 16.0s
+2026-04-21 01:02:16,469 ERROR marquis: HTTP 409 on getUpdates, sleep 30.0s
+2026-04-21 01:02:51,423 ERROR marquis: HTTP 409 on getUpdates, sleep 30.0s
+2026-04-21 01:03:26,447 ERROR marquis: HTTP 409 on getUpdates, sleep 30.0s
+2026-04-21 01:04:01,435 ERROR marquis: HTTP 409 on getUpdates, sleep 30.0s
+2026-04-21 01:04:36,361 ERROR marquis: HTTP 409 on getUpdates, sleep 30.0s
+2026-04-21 01:05:11,338 ERROR marquis: HTTP 409 on getUpdates, sleep 30.0s
+2026-04-21 01:06:05,096 INFO marquis: marquis_bot starting, inbox=C:\Users\Пользователь\OneDrive\Документы\claude-agents\bot\data\marquis_inbox.jsonl
+2026-04-21 01:06:11,063 ERROR marquis: HTTP 409 on getUpdates, sleep 1.0s
+2026-04-21 01:06:17,269 ERROR marquis: HTTP 409 on getUpdates, sleep 2.0s
+2026-04-21 01:06:24,789 ERROR marquis: HTTP 409 on getUpdates, sleep 4.0s
+2026-04-21 01:06:34,849 ERROR marquis: HTTP 409 on getUpdates, sleep 8.0s
+2026-04-21 01:06:47,801 ERROR marquis: HTTP 409 on getUpdates, sleep 16.0s
+2026-04-21 01:07:08,797 ERROR marquis: HTTP 409 on getUpdates, sleep 30.0s
+2026-04-21 01:07:43,762 ERROR marquis: HTTP 409 on getUpdates, sleep 30.0s
+2026-04-21 01:08:18,736 ERROR marquis: HTTP 409 on getUpdates, sleep 30.0s
+2026-04-21 01:08:36,919 INFO marquis: marquis_bot starting, inbox=C:\Users\Пользователь\OneDrive\Документы\claude-agents\bot\data\marquis_inbox.jsonl
+2026-04-21 01:08:37,865 INFO marquis: close ignored (likely no hanging session)
+2026-04-21 01:08:43,769 ERROR marquis: HTTP 409 on getUpdates, sleep 1.0s
+2026-04-21 01:08:50,057 ERROR marquis: HTTP 409 on getUpdates, sleep 2.0s
+2026-04-21 01:08:57,558 ERROR marquis: HTTP 409 on getUpdates, sleep 4.0s
+2026-04-21 01:09:07,413 ERROR marquis: HTTP 409 on getUpdates, sleep 8.0s
+2026-04-21 01:09:20,359 ERROR marquis: HTTP 409 on getUpdates, sleep 16.0s
+2026-04-21 01:09:41,414 ERROR marquis: HTTP 409 on getUpdates, sleep 30.0s
+2026-04-21 01:10:43,405 INFO marquis: marquis_bot starting, inbox=C:\Users\Пользователь\OneDrive\Документы\claude-agents\bot\data\marquis_inbox.jsonl
+2026-04-21 01:11:04,468 INFO marquis: close ignored (likely no hanging session)
+2026-04-21 01:11:10,365 ERROR marquis: HTTP 409 on getUpdates, sleep 1.0s
+2026-04-21 01:11:16,569 ERROR marquis: HTTP 409 on getUpdates, sleep 2.0s
+2026-04-21 01:11:24,155 ERROR marquis: HTTP 409 on getUpdates, sleep 4.0s
+2026-04-21 01:11:34,141 ERROR marquis: HTTP 409 on getUpdates, sleep 8.0s
+2026-04-21 01:11:47,147 ERROR marquis: HTTP 409 on getUpdates, sleep 16.0s
+2026-04-21 01:12:08,425 ERROR marquis: HTTP 409 on getUpdates, sleep 30.0s
+2026-04-21 01:12:44,339 INFO marquis: marquis_bot starting, inbox=C:\Users\Пользователь\OneDrive\Документы\claude-agents\bot\data\marquis_inbox.jsonl
+2026-04-21 01:12:45,377 INFO marquis: close ignored (likely no hanging session)
+2026-04-21 01:12:51,272 ERROR marquis: HTTP 409 on getUpdates, sleep 1.0s
+2026-04-21 01:12:57,367 ERROR marquis: HTTP 409 on getUpdates, sleep 2.0s
+2026-04-21 01:13:04,752 ERROR marquis: HTTP 409 on getUpdates, sleep 4.0s
+2026-04-21 01:13:15,732 ERROR marquis: HTTP 409 on getUpdates, sleep 8.0s
+2026-04-21 01:51:44,176 INFO marquis: marquis_bot starting, inbox=C:\Users\Пользователь\OneDrive\Документы\claude-agents\bot\data\marquis_inbox.jsonl
+2026-04-21 01:51:45,176 INFO marquis: close ignored (likely no hanging session)
+2026-04-21 01:52:53,914 INFO marquis: incoming chat_id=2061792301 user=rustem_work text='ПРИВЕТ'
+2026-04-21 02:04:01,852 ERROR marquis: transport error: Remote end closed connection without response, sleep 1.0s
+2026-04-21 02:04:56,904 ERROR marquis: transport error: <urlopen error [WinError 10060] Попытка установить соединение была безуспешной, т.к. от другого компьютера за требуемое время не получен нужный отклик, или было разорвано уже установленное соединение из-за неверного отклика уже подключенного компьютера>, sleep 1.0s
+2026-04-21 02:09:59,134 ERROR marquis: transport error: <urlopen error [WinError 10060] Попытка установить соединение была безуспешной, т.к. от другого компьютера за требуемое время не получен нужный отклик, или было разорвано уже установленное соединение из-за неверного отклика уже подключенного компьютера>, sleep 1.0s
+2026-04-21 02:11:30,018 ERROR marquis: transport error: Remote end closed connection without response, sleep 1.0s
+2026-04-21 02:14:21,269 ERROR marquis: transport error: <urlopen error [WinError 10060] Попытка установить соединение была безуспешной, т.к. от другого компьютера за требуемое время не получен нужный отклик, или было разорвано уже установленное соединение из-за неверного отклика уже подключенного компьютера>, sleep 1.0s
+2026-04-21 02:15:49,291 ERROR marquis: transport error: <urlopen error [WinError 10060] Попытка установить соединение была безуспешной, т.к. от другого компьютера за требуемое время не получен нужный отклик, или было разорвано уже установленное соединение из-за неверного отклика уже подключенного компьютера>, sleep 1.0s
+2026-04-21 02:17:17,302 ERROR marquis: transport error: <urlopen error [WinError 10060] Попытка установить соединение была безуспешной, т.к. от другого компьютера за требуемое время не получен нужный отклик, или было разорвано уже установленное соединение из-за неверного отклика уже подключенного компьютера>, sleep 1.0s
+2026-04-21 02:17:39,386 ERROR marquis: transport error: <urlopen error [WinError 10060] Попытка установить соединение была безуспешной, т.к. от другого компьютера за требуемое время не получен нужный отклик, или было разорвано уже установленное соединение из-за неверного отклика уже подключенного компьютера>, sleep 2.0s

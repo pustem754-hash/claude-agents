@@ -1,0 +1,70 @@
+2026-04-21 09:00:40,498 INFO teams: teams_bot starting, allowlist_size=1 inbox=C:\Users\Пользователь\OneDrive\Документы\claude-agents\bot\data\teams_inbox.jsonl
+2026-04-21 09:06:29,853 INFO teams: incoming chat=2061792301 user=rustem_work text='сколько файлов в папке bot'
+2026-04-21 09:06:30,871 INFO teams: claude call chat=2061792301 len=26 timeout=300s
+2026-04-21 09:06:30,948 WARNING teams: claude rc=1 elapsed=0.1s err=���誮� ������� ��������� ��ப�.
+2026-04-21 09:10:59,975 INFO teams: teams_bot starting, allowlist_size=1 inbox=C:\Users\Пользователь\OneDrive\Документы\claude-agents\bot\data\teams_inbox.jsonl
+2026-04-21 09:11:43,470 INFO teams: incoming chat=2061792301 user=rustem_work text='сколько файлов в папке bot'
+2026-04-21 09:11:44,478 INFO teams: claude call chat=2061792301 len=26 timeout=300s
+2026-04-21 09:12:03,822 INFO teams: claude done chat=2061792301 elapsed=19.3s out_len=227
+2026-04-21 09:12:24,864 ERROR teams: sendMessage chunk=1/1 failed chat=2061792301
+Traceback (most recent call last):
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1283, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1329, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1038, in _send_output
+    self.send(msg)
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 976, in send
+    self.connect()
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1448, in connect
+    super().connect()
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 942, in connect
+    self.sock = self._create_connection(
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\socket.py", line 845, in create_connection
+    raise err
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\socket.py", line 833, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Попытка установить соединение была безуспешной, т.к. от другого компьютера за требуемое время не получен нужный отклик, или было разорвано уже установленное соединение из-за неверного отклика уже подключенного компьютера
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Пользователь\OneDrive\Документы\claude-agents\bot\teams_bot.py", line 168, in _send_chunked
+    _tg_call(token, "sendMessage", params)
+  File "C:\Users\Пользователь\OneDrive\Документы\claude-agents\bot\teams_bot.py", line 111, in _tg_call
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "C:\Users\Пользователь\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [WinError 10060] Попытка установить соединение была безуспешной, т.к. от другого компьютера за требуемое время не получен нужный отклик, или было разорвано уже установленное соединение из-за неверного отклика уже подключенного компьютера>
+2026-04-21 09:26:03,496 INFO teams: incoming chat=2061792301 user=rustem_work text='покажи сколько файлов в проекте claude-agents'
+2026-04-21 09:26:04,585 INFO teams: claude call chat=2061792301 len=45 timeout=300s
+2026-04-21 09:31:44,856 WARNING teams: claude timeout chat=2061792301 elapsed=340.3s
+2026-04-21 09:33:33,228 INFO teams: incoming chat=2061792301 user=rustem_work text='покажи сколько файлов в проекте claude-agents'
+2026-04-21 09:33:34,231 INFO teams: claude call chat=2061792301 len=45 timeout=300s
+2026-04-21 09:43:56,846 WARNING teams: claude timeout chat=2061792301 elapsed=622.6s
+2026-04-21 09:44:04,033 ERROR teams: HTTP 409 on getUpdates body={"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"} sleep=1.0s
+2026-04-21 09:44:38,517 ERROR teams: HTTP 409 on getUpdates body={"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"} sleep=1.0s
+2026-04-21 09:45:12,965 ERROR teams: HTTP 409 on getUpdates body={"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"} sleep=1.0s
+2026-04-21 09:45:47,458 ERROR teams: HTTP 409 on getUpdates body={"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"} sleep=1.0s
+2026-04-21 09:46:22,019 ERROR teams: HTTP 409 on getUpdates body={"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"} sleep=1.0s
+2026-04-21 09:46:56,548 ERROR teams: HTTP 409 on getUpdates body={"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"} sleep=1.0s
+2026-04-21 09:47:31,680 ERROR teams: HTTP 409 on getUpdates body={"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"} sleep=1.0s
+2026-04-21 09:48:07,326 ERROR teams: HTTP 409 on getUpdates body={"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"} sleep=1.0s
+2026-04-21 09:48:46,772 INFO teams: teams_bot starting, allowlist_size=1 inbox=C:\Users\Пользователь\OneDrive\Документы\claude-agents\bot\data\teams_inbox.jsonl
+2026-04-21 09:48:55,313 ERROR teams: HTTP 409 on getUpdates body={"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"} sleep=1.0s
+2026-04-21 09:49:29,793 ERROR teams: HTTP 409 on getUpdates body={"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"} sleep=1.0s
+2026-04-21 09:50:05,286 ERROR teams: HTTP 409 on getUpdates body={"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"} sleep=1.0s
