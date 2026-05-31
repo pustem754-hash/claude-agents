@@ -58,3 +58,5 @@ outputs/
 .omc/
 Figma-Context-MCP/
 portfolio.zip
+portfolio/01-news-parser/test_results_local.txt
+thoughts/
