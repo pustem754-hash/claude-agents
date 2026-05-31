@@ -1,0 +1,55 @@
+{
+  "_comment": "Справочник фриланс-бирж: метод сбора + последний известный статус. Обновляй note/last_status по факту. Не справочник секретов — только публичные URL.",
+  "default_filters": {
+    "freshness_hours": 24,
+    "min_budget_rub": 1000,
+    "topics": [
+      "AI / нейросети",
+      "Telegram-боты",
+      "парсинг / скрапинг",
+      "автоматизация / API",
+      "лендинги / сайты",
+      "SEO",
+      "контент",
+      "WB / Ozon карточки"
+    ]
+  },
+  "exchanges": [
+    {
+      "name": "fl.ru",
+      "method": "WebFetch https://www.fl.ru/projects/ + фильтр по темам/дате",
+      "last_status": "Работает — основной источник",
+      "note": "Стабильно отдаёт HTML. posted_at в карточке проекта. Бюджет: число или 'по договорённости' -> budget_rub=null."
+    },
+    {
+      "name": "freelance.habr.com",
+      "method": "WebFetch https://freelance.habr.com/tasks",
+      "last_status": "410 Gone (на 2026-04-16)",
+      "note": "Перепроверять — может ожить."
+    },
+    {
+      "name": "kwork.ru",
+      "method": "WebFetch https://kwork.ru/projects",
+      "last_status": "404 на все проекты (на 2026-04-16)",
+      "note": "Антибот. Через WebFetch не берётся."
+    },
+    {
+      "name": "work-zilla.com",
+      "method": "WebFetch https://work-zilla.com/",
+      "last_status": "JS-рендеринг, контент недоступен",
+      "note": "Нужен браузер (chrome-devtools MCP) — дорого, по умолчанию пропускать."
+    },
+    {
+      "name": "weblancer.net",
+      "method": "WebFetch https://www.weblancer.net/jobs/",
+      "last_status": "не проверено",
+      "note": "Кандидат на добавление."
+    },
+    {
+      "name": "freelance.ru",
+      "method": "site: поиск",
+      "last_status": "не индексируется через site:",
+      "note": "Пропускать, пока нет рабочего метода."
+    }
+  ]
+}

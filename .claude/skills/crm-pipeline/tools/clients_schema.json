@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CRM client record",
+  "description": "Одна запись клиента в agent-runtime/shared/sales/clients.json. Файл — массив таких объектов.",
+  "type": "object",
+  "required": ["id", "name", "contact", "status", "created_at", "updated_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Уникальный slug клиента (kebab-case). Если не задан явно — генерится из name.",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "examples": ["ivan-petrov", "acme-corp"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Имя клиента или контактного лица.",
+      "minLength": 1
+    },
+    "contact": {
+      "type": "string",
+      "description": "Канал связи (telegram @handle, email, телефон). Ключ дедупликации — дублей по contact быть не должно.",
+      "minLength": 1
+    },
+    "company": {
+      "type": "string",
+      "description": "Компания клиента. Может быть пустой строкой.",
+      "default": ""
+    },
+    "status": {
+      "type": "string",
+      "description": "Этап воронки.",
+      "enum": ["new", "warm", "hot", "won", "lost"],
+      "default": "new"
+    },
+    "source": {
+      "type": "string",
+      "description": "Откуда пришёл лид.",
+      "enum": ["telegram", "upwork", "kwork", "fl", "habr", "referral", "other"],
+      "default": "other"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Свободные заметки по клиенту.",
+      "default": ""
+    },
+    "next_step": {
+      "type": "string",
+      "description": "Конкретное следующее действие (напр. 'созвон чт 11:00', 'отправить КП').",
+      "default": ""
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Дата создания записи (YYYY-MM-DD), ставится автоматически.",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "Дата последнего изменения (YYYY-MM-DD), обновляется при каждой мутации.",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "history": {
+      "type": "array",
+      "description": "Лог значимых изменений (смена статуса, next_step) с датой.",
+      "items": {
+        "type": "object",
+        "required": ["date", "event"],
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "event": {
+            "type": "string",
+            "description": "Что произошло, напр. 'status: new -> hot'."
+          }
+        }
+      },
+      "default": []
+    }
+  }
+}

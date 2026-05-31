@@ -1,0 +1,50 @@
+[
+  {
+    "id": "ivan-petrov",
+    "name": "Иван Петров",
+    "contact": "@ivan_example",
+    "company": "Example Retail LLC",
+    "status": "hot",
+    "source": "telegram",
+    "notes": "Нужен телеграм-бот для приёма заявок. Бюджет ~80к. ЛПР, решает сам.",
+    "next_step": "Созвон чт 11:00 — финализировать ТЗ",
+    "created_at": "2026-04-10",
+    "updated_at": "2026-04-18",
+    "history": [
+      { "date": "2026-04-10", "event": "created (status: new)" },
+      { "date": "2026-04-14", "event": "status: new -> warm" },
+      { "date": "2026-04-18", "event": "status: warm -> hot" }
+    ]
+  },
+  {
+    "id": "acme-studio",
+    "name": "Мария Сидорова",
+    "contact": "maria@acme-studio.example",
+    "company": "Acme Studio",
+    "status": "warm",
+    "source": "referral",
+    "notes": "Парсер цен конкурентов в Google Sheets. Ждёт оценку сроков.",
+    "next_step": "Отправить КП до пятницы",
+    "created_at": "2026-04-15",
+    "updated_at": "2026-04-16",
+    "history": [
+      { "date": "2026-04-15", "event": "created (status: new)" },
+      { "date": "2026-04-16", "event": "status: new -> warm" }
+    ]
+  },
+  {
+    "id": "nordwind-data",
+    "name": "Алексей Кузнецов",
+    "contact": "@nordwind_example",
+    "company": "Nordwind Data",
+    "status": "new",
+    "source": "fl",
+    "notes": "Заявка с биржи: дашборд по продажам. Пока не отвечал на отклик.",
+    "next_step": "Follow-up #1 (день 3)",
+    "created_at": "2026-04-19",
+    "updated_at": "2026-04-19",
+    "history": [
+      { "date": "2026-04-19", "event": "created (status: new)" }
+    ]
+  }
+]

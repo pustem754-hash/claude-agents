@@ -1,0 +1,26 @@
+{
+  "title": "Демо-таблица: цены и динамика",
+  "source": "Источник: синтетические данные · валюта USD · сортировка по величине",
+  "sheet_name": "Data",
+  "columns": [
+    {"name": "Тикер", "width": 12, "align": "left"},
+    {"name": "Цена USD", "width": 15, "align": "right", "number_format": "$#,##0.00"},
+    {"name": "Изм. 24ч %", "width": 14, "align": "right", "number_format": "0.00\" %\""}
+  ],
+  "rows": [
+    ["AAA", 65000.0, 2.45],
+    ["BBB", 3200.5, -1.10],
+    ["CCC", 0.85, 5.30]
+  ],
+  "conditional": [
+    {"col": "C", "type": "sign"}
+  ],
+  "colorscale": ["B"],
+  "summary": [
+    ["Строк в отчёте", 3],
+    ["Растущих (24ч)", 2],
+    ["Падающих (24ч)", 1]
+  ],
+  "autofilter": true,
+  "freeze": "A4"
+}
