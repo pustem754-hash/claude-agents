@@ -5,3 +5,6 @@ __pycache__/
 venv/
 *.log
 .DS_Store
+
+# Playwright storage_state — сохранённые cookies сайтов (могут содержать session-токены)
+.playwright_state/

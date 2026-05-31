@@ -24,7 +24,15 @@ def main() -> int:
     parser = ArticleParser(CONFIG)
     scraper = Scraper()
 
-    html = scraper.fetch(args.url, use_cloudflare=parser.site_uses_cloudflare(args.site))
+    html = scraper.fetch(
+        args.url,
+        use_cloudflare=parser.site_uses_cloudflare(args.site),
+        use_playwright=parser.site_uses_playwright(args.site),
+        use_flaresolverr=parser.site_uses_flaresolverr(args.site),
+        use_stealth=parser.site_uses_stealth(args.site),
+        site_key=args.site,
+        proxy=parser.site_proxy(args.site),
+    )
     article = parser.parse(html, url=args.url, site_key=args.site)
 
     print(f"Title:  {article.title}")

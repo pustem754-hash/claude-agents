@@ -23,6 +23,38 @@ class ArticleParser:
     def site_uses_cloudflare(self, site_key: str) -> bool:
         return bool(self.config.get(site_key, {}).get("cloudflare", False))
 
+    def site_uses_playwright(self, site_key: str) -> bool:
+        return bool(self.config.get(site_key, {}).get("use_playwright", False))
+
+    def site_uses_flaresolverr(self, site_key: str) -> bool:
+        return bool(self.config.get(site_key, {}).get("use_flaresolverr", False))
+
+    def site_uses_stealth(self, site_key: str) -> bool:
+        return bool(self.config.get(site_key, {}).get("use_stealth", False))
+
+    def site_proxy(self, site_key: str) -> str | None:
+        """Резолвит `${VAR}` и `${VAR:-default}` из переменных окружения.
+
+        Это нужно, чтобы в YAML коммитить только ссылку на env-переменную,
+        а сам адрес прокси жил в .env на сервере (требование CLAUDE.md).
+        """
+        import os
+        import re
+        raw = self.config.get(site_key, {}).get("proxy")
+        if not raw:
+            return None
+        raw = str(raw)
+
+        def _expand(match: "re.Match[str]") -> str:
+            inner = match.group(1)
+            if ":-" in inner:
+                var, default = inner.split(":-", 1)
+                return os.getenv(var, default)
+            return os.getenv(inner, "")
+
+        resolved = re.sub(r"\$\{([^}]+)\}", _expand, raw).strip()
+        return resolved or None
+
     def parse(self, html: str, url: str, site_key: str) -> Article:
         if site_key not in self.config:
             raise KeyError(f"Site '{site_key}' not configured in {self.config_path}")
@@ -74,7 +106,15 @@ class ArticleParser:
 
     @staticmethod
     def _normalize_date(raw: str) -> str | None:
+        # Unix-timestamp (tass.com <dateformat time="1776222001" mode="abs">)
+        s = (raw or "").strip()
+        if s.isdigit() and 9 <= len(s) <= 13:
+            from datetime import datetime, timezone
+            ts = int(s)
+            if len(s) == 13:  # миллисекунды
+                ts //= 1000
+            return datetime.fromtimestamp(ts, tz=timezone.utc).isoformat()
         try:
-            return date_parser.parse(raw).isoformat()
+            return date_parser.parse(s).isoformat()
         except (ValueError, TypeError):
-            return raw or None
+            return s or None

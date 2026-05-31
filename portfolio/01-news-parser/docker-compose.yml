@@ -14,5 +14,20 @@ services:
     volumes:
       - rmq_data:/var/lib/rabbitmq
 
+  # FlareSolverr — прокси-сервер для обхода CloudFlare/ServicePipe JS-challenge.
+  # Endpoint: http://localhost:8191/v1  (POST с {"cmd":"request.get","url":"..."})
+  # Подключается в YAML флагом use_flaresolverr: true.
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: news-parser-flaresolverr
+    restart: unless-stopped
+    ports:
+      - "8191:8191"
+    environment:
+      LOG_LEVEL: ${FLARESOLVERR_LOG_LEVEL:-info}
+      LOG_HTML: "false"
+      CAPTCHA_SOLVER: none
+      TZ: Europe/Moscow
+
 volumes:
   rmq_data:

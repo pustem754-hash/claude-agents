@@ -33,7 +33,15 @@ def build_handler(publisher: QueuePublisher, scraper: Scraper, parser: ArticlePa
         logger.info("Task received: %s (%s)", task.url, task.site_key)
 
         try:
-            html = scraper.fetch(task.url, use_cloudflare=parser.site_uses_cloudflare(task.site_key))
+            html = scraper.fetch(
+                task.url,
+                use_cloudflare=parser.site_uses_cloudflare(task.site_key),
+                use_playwright=parser.site_uses_playwright(task.site_key),
+                use_flaresolverr=parser.site_uses_flaresolverr(task.site_key),
+                use_stealth=parser.site_uses_stealth(task.site_key),
+                site_key=task.site_key,
+                proxy=parser.site_proxy(task.site_key),
+            )
             article = parser.parse(html, url=task.url, site_key=task.site_key)
 
             if not article.is_valid():

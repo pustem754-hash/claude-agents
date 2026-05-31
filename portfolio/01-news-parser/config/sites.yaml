@@ -1,7 +1,25 @@
 # XPath-конфигурация сайтов. Добавление нового сайта не требует правок кода.
+#
+# Флаги (приоритет сверху вниз):
+#   use_flaresolverr: true  → проксирование через FlareSolverr (Docker, http://host:8191/v1)
+#   use_playwright:   true  → headless Chromium + ручной stealth + storage_state
+#   use_stealth:      true  → ДОП. включает tf-playwright-stealth (только с use_playwright)
+#                             ВНИМАНИЕ: ломает загрузку на RBC (39-byte stub). Включать
+#                             точечно там, где реально помогает (например, TASS + RU-IP).
+#   cloudflare:       true  → cloudscraper (базовый обход CloudFlare JS-challenge)
+#   (по умолчанию)          → plain requests
+#
+# Флаги взаимоисключающие — используется первый совпавший по приоритету.
+#
+# Поле `proxy` (опционально): HTTP/SOCKS5 прокси для этого сайта.
+# Поддерживается подстановка ${VAR} и ${VAR:-default} — значения читаются из окружения (.env).
+# Коммитить в YAML ТОЛЬКО имя переменной, не реальный адрес с логином/паролем.
+# Пример: proxy: "${TASS_PROXY}"   → адрес живёт в .env на сервере.
+
 lenta_ru:
   name: "Lenta.ru"
   cloudflare: true
+  use_playwright: false
   selectors:
     title:
       - "//h1[contains(@class,'topic-body__title')]//text()"
@@ -17,21 +35,42 @@ lenta_ru:
 rbc_ru:
   name: "RBC.ru"
   cloudflare: true
+  use_playwright: true
+  # Разметка RBC на апрель 2026:
+  #   h1.article-entry-title — заголовок
+  #   article.article-feature-item > p.paragraph — основной текст (фильтр по классу p
+  #     исключает подписи к фото и description-лид без класса)
+  #   meta[itemprop=datePublished]@content — ISO-дата публикации
+  #   *.style_author-wrapper__* — автор (Next.js хеш-классы)
   selectors:
     title:
+      - "//h1[contains(@class,'article-entry-title')]//text()"
       - "//h1[contains(@class,'article__header__title')]//text()"
-      - "//h1[contains(@class,'article__header__title-in')]//text()"
     text:
+      - "//article[contains(@class,'article-feature-item')]//p[contains(@class,'paragraph')]"
       - "//div[contains(@class,'article__text')]//p"
     author:
+      - "//*[contains(@class,'style_author-wrapper__')]//text()"
       - "//span[contains(@class,'article__authors__author__name')]//text()"
     date:
-      - "//span[contains(@class,'article__header__date')]/@content"
+      - "//meta[@itemprop='datePublished']/@content"
+      - "//meta[@property='article:published_time']/@content"
       - "//time/@datetime"
 
 tass_ru:
+  # Fallback: работает только с российского IP. Без RU-IP ServicePipe отдаёт 403
+  # даже через Playwright со stealth-инъекциями (блок по ASN/geo, не fingerprint).
+  # Для международного трафика см. tass_com — английское зеркало без ServicePipe.
+  #
+  # Рекомендуемая связка для продакшена:
+  #   proxy:            "${TASS_PROXY}"    # RU residential HTTP/SOCKS5 в .env
+  #   use_playwright:   true                # чтобы пройти ServicePipe JS-challenge
+  #   use_flaresolverr: true (альтернатива Playwright — Docker-сервис)
   name: "TASS.ru"
   cloudflare: false
+  use_playwright: true
+  use_flaresolverr: false
+  proxy: "${TASS_PROXY:-}"
   selectors:
     title:
       - "//h1[contains(@class,'title')]//text()"
@@ -42,3 +81,27 @@ tass_ru:
       - "//span[contains(@class,'author')]//text()"
     date:
       - "//time/@datetime"
+
+tass_com:
+  # Английское зеркало TASS: тот же контент что на tass.ru, но без ServicePipe —
+  # отдаётся обычным HTTP. RSS: https://tass.com/rss/v2.xml. URL статей вида
+  # https://tass.com/<section>/<id> (section: politics, world, economy, etc.).
+  # Разметка Angular (news-header + dateformat + text-block), нет <time> и
+  # нет article:published_time — дата берётся из видимого текста "15 Apr, 06:00"
+  # и добивается текущим годом через dateutil.
+  name: "TASS.com (English mirror)"
+  cloudflare: false
+  use_playwright: false
+  selectors:
+    title:
+      - "//h1[contains(@class,'news-header__title')]//text()"
+      - "//meta[@property='og:title']/@content"
+    text:
+      - "//div[contains(@class,'text-block')]//p"
+    author:
+      - "//div[contains(@class,'news-header__author')]//text()"
+    date:
+      # Angular рендерит span на клиенте; plain HTTP видит только <dateformat time="...">
+      # с Unix-timestamp в атрибуте. _normalize_date конвертирует в ISO.
+      - "//div[contains(@class,'news-header__date')]//dateformat[@mode='abs']/@time"
+      - "//div[contains(@class,'news-header__date')]//span[contains(@class,'ng-binding')]/text()"
